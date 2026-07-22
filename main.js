@@ -136,8 +136,8 @@
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lightboxImg');
   if (lb && lbImg) {
-    document.querySelectorAll('.shot-frame img').forEach(function (img) {
-      img.closest('.shot-frame').addEventListener('click', function () {
+    document.querySelectorAll('.shot-frame img, .c-shot img').forEach(function (img) {
+      img.closest('.shot-frame, .c-shot').addEventListener('click', function () {
         lbImg.src = img.src;
         lbImg.alt = img.alt;
         lb.classList.add('open');

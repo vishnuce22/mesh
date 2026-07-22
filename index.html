@@ -17,6 +17,7 @@
 </head>
 <body>
   <div class="accent-line" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 
   <!-- ── Nav ─────────────────────────────────────────────────────────── -->
   <header class="nav">
@@ -94,10 +95,10 @@
     <!-- ── Stats ─────────────────────────────────────────────────────── -->
     <section class="stats" id="stats" aria-label="Product facts">
       <div class="wrap stats-grid">
-        <div class="stat reveal"><div class="n">11</div><div class="l">job states</div><div class="s">auto-gated lifecycle</div></div>
-        <div class="stat reveal"><div class="n">12</div><div class="l">role-scoped views</div><div class="s">kiosk to boardroom</div></div>
-        <div class="stat reveal"><div class="n">5 yr</div><div class="l">audit trail</div><div class="s">tamper-evident records</div></div>
-        <div class="stat reveal"><div class="n">1</div><div class="l">source of truth</div><div class="s">for the whole floor</div></div>
+        <div class="stat reveal"><div class="n" data-n="11">11</div><div class="l">job states</div><div class="s">auto-gated lifecycle</div></div>
+        <div class="stat reveal"><div class="n" data-n="12">12</div><div class="l">role-scoped views</div><div class="s">kiosk to boardroom</div></div>
+        <div class="stat reveal"><div class="n" data-n="5" data-suffix=" yr">5 yr</div><div class="l">audit trail</div><div class="s">tamper-evident records</div></div>
+        <div class="stat reveal"><div class="n" data-n="1">1</div><div class="l">source of truth</div><div class="s">for the whole floor</div></div>
       </div>
     </section>
 
@@ -373,10 +374,10 @@
       <div class="wrap">
         <div class="reveal">
           <div class="quotebar" aria-hidden="true"></div>
-          <h2>Proven in production, not in a pitch deck</h2>
+          <h2>Built for a real floor, not a pitch deck</h2>
           <p>MESH was built end-to-end for a working AS9100D + ITAR aerospace CNC shop in
-            Ontario, Canada — where it runs the floor across every shift: work orders in,
-            parts tracked, quality recorded, jobs shipped.</p>
+            Ontario, Canada — deployed on its infrastructure and being readied for floor
+            go-live: work orders, live tracking, quality records and traceability, wall to wall.</p>
         </div>
       </div>
     </section>
@@ -403,8 +404,9 @@
           </svg>
           <span class="wm-text"><span class="wm-grad">MES</span><span class="wm-steel">H</span></span>
         </a>
-        <p style="margin-top:1rem">MESH is a manufacturing execution system, live in production at an
-          AS9100D + ITAR aerospace machine shop. Screenshots show demo data with sensitive fields redacted.</p>
+        <p style="margin-top:1rem">MESH is a manufacturing execution system built for an
+          AS9100D + ITAR aerospace machine shop, deployed and being readied for floor go-live.
+          Screenshots show demo data with sensitive fields redacted.</p>
       </div>
       <div>
         <p class="foot-h">Explore</p>
@@ -424,6 +426,10 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot enlarged">
+    <img id="lightboxImg" src="" alt="" />
+    <p class="lb-cap">CLICK ANYWHERE OR PRESS ESC TO CLOSE</p>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>

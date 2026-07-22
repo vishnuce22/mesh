@@ -48,15 +48,15 @@ export default function ScrollStory() {
                     <span
                       className={`absolute left-0 top-1/2 h-px w-4 -translate-y-1/2 transition-colors duration-300 ${i === active ? 'bg-cyan' : 'bg-white/12'}`}
                     />
-                    <button
+                    <span
                       className={`font-mono text-[12px] tracking-[0.16em] transition-colors duration-300 ${
-                        i === active ? 'text-white' : i < active ? 'text-titanium' : 'text-titanium/45'
+                        i === active ? 'text-white' : i < active ? 'text-titanium' : 'text-titanium/60'
                       }`}
                     >
                       <span className={i === active ? 'text-cyan' : ''}>{s.index}</span>
                       {'  '}
                       {s.title.toUpperCase()}
-                    </button>
+                    </span>
                   </li>
                 ))}
               </ol>

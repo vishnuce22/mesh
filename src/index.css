@@ -1,0 +1,137 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-void: #050507;
+  --color-graphite: #0a0c10;
+  --color-panel: #0e1116;
+  --color-electric: #3b82f6;
+  --color-cyan: #22d3ee;
+  --color-alum: #c7cdd6;
+  --color-titanium: #8a919c;
+  --color-signal: #fb923c;
+  --color-run: #34d399;
+  --color-ink: #edf0f4;
+
+  --font-display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+  color: #fff;
+}
+
+/* ── shared primitives (components layer so utilities can override) ── */
+
+@layer components {
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-titanium);
+}
+
+.hairline {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass {
+  background: rgba(14, 17, 22, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  font-weight: 600;
+  color: #fff;
+  text-wrap: balance;
+}
+
+/* blueprint grid wash used behind sections */
+.blueprint {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);
+}
+}
+
+/* status dot pulse */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 currentColor; }
+  50% { opacity: 0.55; }
+}
+.pulse {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+/* slow idle float for hero panels */
+@keyframes idle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.idle-float {
+  animation: idle-float 7s ease-in-out infinite;
+}
+.idle-float-slow {
+  animation: idle-float 9.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(34,211,238,0.18) 50%, rgba(255,255,255,0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse, .idle-float, .idle-float-slow, .shimmer {
+    animation: none;
+  }
+}
+
+/* thin custom scrollbar, keeps the industrial feel */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #07080b; }
+::-webkit-scrollbar-thumb { background: #1c2230; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #2a3346; }
+
+/* visible keyboard focus */
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
